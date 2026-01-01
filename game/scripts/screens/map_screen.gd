@@ -1,4 +1,4 @@
-# scripts/screens/MapScreen.gd
+# scripts/screens/map_screen.gd
 extends Control
 
 @onready var grid: GridContainer = %LocationGrid
