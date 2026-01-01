@@ -1,0 +1,32 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://scripts/resources/location_collection.gd" type="Script" id=1]
+[ext_resource path="res://scripts/resources/location_data.gd" type="Script" id=2]
+
+[resource]
+script = ExtResource(1)
+items = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource(2)
+id = "EQUIPMENT_FLOOR"
+title = "Equipment Floor"
+desc = "The main area housing all critical machinery."
+
+[sub_resource type="Resource" id=2]
+script = ExtResource(2)
+id = "PLC_ROOM"
+title = "PLC Room"
+desc = "Where the programmable logic controllers are maintained."
+
+[sub_resource type="Resource" id=3]
+script = ExtResource(2)
+id = "DRIVE_ROOM"
+title = "Drive Room"
+desc = "Contains the motor drives and control systems."
+
+[sub_resource type="Resource" id=4]
+script = ExtResource(2)
+id = "OPERATOR_PULPIT"
+title = "Operator Pulpit"
+desc = "The central control station for operators."
