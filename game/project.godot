@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="rod-and-order"
+run/main_scene="uid://crhoahm7xqtsa"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameState="*res://scripts/autoload/gamestate.gd"
 
 [rendering]
 
