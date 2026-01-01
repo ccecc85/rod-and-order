@@ -1,0 +1,8 @@
+[application]
+config/name="Rod and Order"
+config/description="Cross-platform game (Godot)"
+
+[rendering]
+quality/driver/driver_name="Vulkan"
+
+# Add `run/main_scene` in the Godot editor after creating your main scene.
