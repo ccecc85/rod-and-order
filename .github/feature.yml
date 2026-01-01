@@ -1,0 +1,27 @@
+name: Feature
+description: A player-facing feature or system
+title: "[Feature] "
+labels: ["feature"]
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What are we building and why?
+    validations:
+      required: true
+  - type: textarea
+    id: player
+    attributes:
+      label: Player experience
+      description: What does the player do/feel/see?
+  - type: textarea
+    id: requirements
+    attributes:
+      label: Requirements
+      description: Bullet list of needs
+  - type: textarea
+    id: done
+    attributes:
+      label: Acceptance criteria (Definition of Done)
+      description: What must be true for this to be complete?

@@ -4,9 +4,16 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 GAME_PATH="$REPO_ROOT/game"
-GODOT_EXEC="${GODOT_EXEC:-godot}"
+default_win_path="/mnt/d/Tools/Godot/Godot_v4.5.1-stable_win64.exe"
+if [ -z "${GODOT_EXEC:-}" ]; then
+  if [ -x "$default_win_path" ]; then
+    GODOT_EXEC="$default_win_path"
+  else
+    GODOT_EXEC="godot"
+  fi
+fi
 
-if ! command -v "$GODOT_EXEC" >/dev/null 2>&1; then
+if ! command -v "$GODOT_EXEC" >/dev/null 2>&1 && [ ! -x "$GODOT_EXEC" ]; then
   echo "Godot executable not found. Install Godot or set GODOT_EXEC to the CLI path." >&2
   exit 1
 fi

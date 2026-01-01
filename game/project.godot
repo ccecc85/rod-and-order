@@ -1,8 +1,19 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
 [application]
-config/name="Rod and Order"
-config/description="Cross-platform game (Godot)"
+
+config/name="rod-and-order"
+config/features=PackedStringArray("4.5", "Mobile")
+config/icon="res://icon.svg"
 
 [rendering]
-quality/driver/driver_name="Vulkan"
 
-# Add `run/main_scene` in the Godot editor after creating your main scene.
+renderer/rendering_method="mobile"

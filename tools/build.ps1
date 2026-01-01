@@ -6,8 +6,14 @@ $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Definition
 $repoRoot = Resolve-Path (Join-Path $scriptDir "..")
 $gamePath = Join-Path $repoRoot "game"
 
-if (-not $GodotExec) { $GodotExec = "godot" }
-if (-not (Get-Command $GodotExec -ErrorAction SilentlyContinue)) {
+# Prefer user-provided GODOT_EXEC. If unset, prefer a common local install path if present.
+$defaultPath = 'D:\Tools\Godot\Godot_v4.5.1-stable_win64.exe'
+if (-not $GodotExec) {
+    if (Test-Path $defaultPath) { $GodotExec = $defaultPath } else { $GodotExec = 'godot' }
+}
+
+# Accept either an executable on PATH or an absolute path to the Godot exe.
+if (-not (Get-Command $GodotExec -ErrorAction SilentlyContinue) -and -not (Test-Path $GodotExec)) {
     Write-Error "Godot executable not found. Install Godot or set the GODOT_EXEC environment variable to the Godot CLI path."
     exit 1
 }
