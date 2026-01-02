@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://20b23jbnoqoa"]
+
+[ext_resource type="Script" uid="uid://dpka6xbk4klyl" path="res://scripts/player/player_controller.gd" id="1_8afob"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x7p2l"]
+
+[node name="player" type="CharacterBody2D"]
+z_index = 1
+script = ExtResource("1_8afob")
+
+[node name="sprite_2d" type="Sprite2D" parent="."]
+
+[node name="collision_shape_2d" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_x7p2l")
+
+[node name="player_body" type="Polygon2D" parent="."]
+color = Color(0.2901961, 1, 0.32156864, 1)
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)

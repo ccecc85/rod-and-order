@@ -16,12 +16,12 @@ enum LocationKey {
 }
 
 # Canonical string IDs (used by LOCATIONS + the rest of your code)
-const LOCATION_ID_BY_KEY := {
-	LocationKey.EQUIPMENT_FLOOR: LOCATION_EQUIPMENT_FLOOR,
-	LocationKey.PLC_ROOM: LOCATION_PLC_ROOM,
-	LocationKey.DRIVE_ROOM: LOCATION_DRIVE_ROOM,
-	LocationKey.OPERATOR_PULPIT: LOCATION_OPERATOR_PULPIT,
-}
+const LOCATION_ID_BY_KEY := [
+	LOCATION_EQUIPMENT_FLOOR,
+	LOCATION_PLC_ROOM,
+	LOCATION_DRIVE_ROOM,
+	LOCATION_OPERATOR_PULPIT,
+]
 
 const LOCATIONS := {
 	LOCATION_EQUIPMENT_FLOOR: {"title": "Equipment Floor", "desc": "This is the equipment floor of the facility."},
@@ -101,8 +101,12 @@ func severity_label(sev: int) -> String:
 var selected_location: String = "EQUIPMENT_FLOOR"
 
 func location_id_from_key(key: int) -> String:
-	return LOCATION_ID_BY_KEY.get(key, "")
+	if key >= 0 and key < LOCATION_ID_BY_KEY.size():
+		return LOCATION_ID_BY_KEY[key]
+	return ""
 
+func location_key_from_id(id: String) -> int:
+	return LOCATION_ID_BY_KEY.find(id) # returns -1 if not found
 
 func get_location_info(location_id: String) -> Dictionary:
 	var default_info := {"title": "Unknown Location", "desc": "Description not available."}
@@ -114,7 +118,7 @@ func set_selected_location(location_id: String) -> void:
 		selected_location = location_id
 	else:
 		push_warning("Invalid location_id passed to set_selected_location: %s" % location_id)
-		selected_location = location_id # or keep the old value if you prefer
+		# keep previous selected_location (no assignment)
 
 
 func is_valid_location_id(id: String) -> bool:

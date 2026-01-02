@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://blh4puw55jch7"]
+
+[ext_resource type="Script" uid="uid://dcrktyt6bl6tf" path="res://scripts/world/world_main.gd" id="1_k7kex"]
+[ext_resource type="PackedScene" uid="uid://20b23jbnoqoa" path="res://scenes/player/player.tscn" id="1_sn1xp"]
+[ext_resource type="Script" uid="uid://cmektx8xwis3k" path="res://scripts/world/debug_floor.gd" id="3_uumr1"]
+
+[node name="world_main" type="Node2D"]
+script = ExtResource("1_k7kex")
+
+[node name="background" type="Node2D" parent="."]
+
+[node name="navigation_region_2d" type="NavigationRegion2D" parent="."]
+
+[node name="player_spawn" type="Marker2D" parent="."]
+
+[node name="player" parent="." instance=ExtResource("1_sn1xp")]
+
+[node name="camera_2d" type="Camera2D" parent="player"]
+
+[node name="debug_floor" type="Node2D" parent="."]
+script = ExtResource("3_uumr1")
+
+[node name="grid_lines" type="Line2D" parent="debug_floor"]
