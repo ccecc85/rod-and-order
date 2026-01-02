@@ -1,4 +1,4 @@
-# scripts/screens/LocationScreen.gd
+# scripts/screens/location_screen.gd
 extends Control
 
 @onready var location_title: Label = %LocationTitle
