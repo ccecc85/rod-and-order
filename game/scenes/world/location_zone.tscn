@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://fxakahtk0evx"]
+
+[ext_resource type="Script" uid="uid://b8ee8bburwme" path="res://scripts/world/location_zone.gd" id="1_l640t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t6gpq"]
+size = Vector2(256, 64)
+
+[node name="location_zone" type="Area2D"]
+script = ExtResource("1_l640t")
+
+[node name="collision_shape_2d" type="CollisionShape2D" parent="."]
+position = Vector2(128, 32)
+shape = SubResource("RectangleShape2D_t6gpq")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(1, 1, 1, 0.4117647)
+polygon = PackedVector2Array(0, 0, 0, 64, 256, 64, 256, 0)

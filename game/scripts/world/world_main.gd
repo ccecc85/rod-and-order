@@ -6,12 +6,14 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_set_navigation_outline(PackedVector2Array([
-		Vector2(-1200, -800),
-		Vector2(1200, -800),
-		Vector2(1200, 800),
-		Vector2(-1200, 800),
-	]))
+	
+	#_set_navigation_outline(PackedVector2Array([
+	#	Vector2(-1200, -800),
+	#	Vector2(1200, -800),
+	#	Vector2(1200, 800),
+	#	Vector2(-1200, 800),
+	#]))
+
 	player.global_position = player_spawn.global_position # set player position to spawn point
 	print("loaded scene:", get_tree().current_scene.scene_file_path) # debug print
 

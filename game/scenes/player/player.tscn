@@ -1,8 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://20b23jbnoqoa"]
+[gd_scene load_steps=4 format=3 uid="uid://20b23jbnoqoa"]
 
 [ext_resource type="Script" uid="uid://dpka6xbk4klyl" path="res://scripts/player/player_controller.gd" id="1_8afob"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x7p2l"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_8afob"]
+radius = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dovo2"]
+radius = 24.0
 
 [node name="player" type="CharacterBody2D"]
 z_index = 1
@@ -11,8 +15,15 @@ script = ExtResource("1_8afob")
 [node name="sprite_2d" type="Sprite2D" parent="."]
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_x7p2l")
+shape = SubResource("CircleShape2D_8afob")
 
 [node name="player_body" type="Polygon2D" parent="."]
 color = Color(0.2901961, 1, 0.32156864, 1)
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[node name="interaction_area" type="Area2D" parent="."]
+
+[node name="collision_shape_2d" type="CollisionShape2D" parent="interaction_area"]
+top_level = true
+shape = SubResource("CircleShape2D_dovo2")
+debug_color = Color(0, 0.6, 0.69803923, 0.4509804)

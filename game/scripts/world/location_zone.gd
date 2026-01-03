@@ -1,6 +1,6 @@
 @tool
 extends Area2D
-class_name LocationHotspot
+class_name LocationZone
 
 @export var location_key: GameState.LocationKey = GameState.LocationKey.EQUIPMENT_FLOOR
 
@@ -15,8 +15,8 @@ func _ready() -> void:
 	# In tool mode, _ready can run in the editor too.
 	var id := get_location_id()
 	if id.is_empty():
-		push_warning("LocationHotspot '%s' has empty mapped location id." % name)
+		push_warning("LocationZone '%s' has empty mapped location id." % name)
 		return
 
 	if not GameState.is_valid_location_id(id):
-		push_warning("LocationHotspot '%s' invalid mapped location id '%s'." % [name, id])
+		push_warning("LocationZone '%s' invalid mapped location id '%s'." % [name, id])

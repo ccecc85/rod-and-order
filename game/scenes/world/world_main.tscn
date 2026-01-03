@@ -1,18 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://blh4puw55jch7"]
+[gd_scene load_steps=7 format=3 uid="uid://blh4puw55jch7"]
 
 [ext_resource type="Script" uid="uid://dcrktyt6bl6tf" path="res://scripts/world/world_main.gd" id="1_k7kex"]
 [ext_resource type="PackedScene" uid="uid://20b23jbnoqoa" path="res://scenes/player/player.tscn" id="1_sn1xp"]
 [ext_resource type="Script" uid="uid://cmektx8xwis3k" path="res://scripts/world/debug_floor.gd" id="3_uumr1"]
+[ext_resource type="PackedScene" uid="uid://fxakahtk0evx" path="res://scenes/world/location_zone.tscn" id="4_vbitt"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_uumr1"]
-parsed_geometry_type = 1
+vertices = PackedVector2Array(238.71875, -18, 132.14063, -18, 132.14063, -126, 238.71875, -126, 260.14063, 2, 260.14063, -146, 942.0781, -398.09375, 949.9219, 542, -749.75, 542, 258.71875, 2.5, 258.71875, -146, 258.71875, -146.5, 258.71875, 2, 109.28125, 2.5, -726.2422, -413.89844, 109.28125, -146.5)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(4, 7, 8, 9), PackedInt32Array(5, 10, 11, 6), PackedInt32Array(9, 12, 4), PackedInt32Array(13, 9, 8), PackedInt32Array(13, 8, 14, 15), PackedInt32Array(15, 14, 6, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-736, -424, 952, -408, 960, 552, -760, 552)])
+source_geometry_mode = 1
+source_geometry_group_name = &"navigation_polygon_source"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uumr1"]
+size = Vector2(129.4425, 129)
 
 [node name="world_main" type="Node2D"]
 script = ExtResource("1_k7kex")
 
 [node name="background" type="Node2D" parent="."]
 
-[node name="navigation_region_2d" type="NavigationRegion2D" parent="."]
+[node name="navigation_region_2d" type="NavigationRegion2D" parent="." groups=["navigation_polygon_source"]]
 position = Vector2(-64, 24)
 navigation_polygon = SubResource("NavigationPolygon_uumr1")
 
@@ -25,9 +33,47 @@ navigation_polygon = SubResource("NavigationPolygon_uumr1")
 [node name="navigation_agent_2d" type="NavigationAgent2D" parent="player"]
 path_desired_distance = 4.0
 target_desired_distance = 8.0
+avoidance_enabled = true
 radius = 12.0
 
 [node name="debug_floor" type="Node2D" parent="."]
 script = ExtResource("3_uumr1")
 
 [node name="grid_lines" type="Line2D" parent="debug_floor"]
+
+[node name="obstacle_1" type="StaticBody2D" parent="." groups=["navigation_polygon_source"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacle_1"]
+position = Vector2(120, -48)
+shape = SubResource("RectangleShape2D_uumr1")
+
+[node name="Polygon2D" type="Polygon2D" parent="obstacle_1"]
+position = Vector2(24.000015, -48)
+scale = Vector2(18.845, 18.845)
+color = Color(1, 0.15686275, 0.3764706, 1)
+polygon = PackedVector2Array(1.8116211, -3.3961263, 1.8116211, 3.3961263, 8.603874, 3.3961263, 8.603874, -3.3961263)
+
+[node name="zone_equipment_floor" parent="." instance=ExtResource("4_vbitt")]
+position = Vector2(-472, -88)
+
+[node name="zone_plc_room" parent="." instance=ExtResource("4_vbitt")]
+position = Vector2(608, -120)
+location_key = 1
+
+[node name="zone_drive_room" parent="." instance=ExtResource("4_vbitt")]
+position = Vector2(608, -200)
+location_key = 2
+
+[node name="zone_operator_pulpit" parent="." instance=ExtResource("4_vbitt")]
+position = Vector2(-472, -288)
+location_key = 3
+
+[node name="ui_layer" type="CanvasLayer" parent="."]
+
+[node name="interact_prompt" type="Label" parent="ui_layer"]
+visible = false
+offset_left = 64.0
+offset_top = 368.0
+offset_right = 204.0
+offset_bottom = 391.0
+text = "Press E to interact"
