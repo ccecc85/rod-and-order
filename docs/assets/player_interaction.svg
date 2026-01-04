@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="180" viewBox="0 0 640 180">
+  <style> .box { fill:#fffaf0; stroke:#dd6b20; stroke-width:2 } .text{ font-family: Arial, sans-serif; font-size:13px; fill:#222 }</style>
+  <rect class="box" x="18" y="20" width="140" height="44" rx="6"/>
+  <text class="text" x="34" y="48">Player</text>
+
+  <rect class="box" x="208" y="16" width="160" height="52" rx="6"/>
+  <text class="text" x="230" y="40">LocationZone (Area2D)</text>
+
+  <rect class="box" x="428" y="16" width="160" height="52" rx="6"/>
+  <text class="text" x="448" y="40">GameState.selected_location</text>
+
+  <defs>
+    <marker id="arrow2" markerWidth="10" markerHeight="10" refX="6" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#dd6b20" />
+    </marker>
+  </defs>
+
+  <line x1="158" y1="42" x2="208" y2="42" stroke="#dd6b20" stroke-width="2" marker-end="url(#arrow2)"/>
+  <line x1="368" y1="42" x2="428" y2="42" stroke="#dd6b20" stroke-width="2" marker-end="url(#arrow2)"/>
+
+  <text class="text" x="26" y="76">enter area → shows interact prompt</text>
+  <text class="text" x="220" y="76">press interact → _try_interact()</text>
+</svg>

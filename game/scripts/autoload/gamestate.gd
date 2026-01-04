@@ -1,5 +1,4 @@
 extends Node
-class_name gamestate
 
 const LOCATION_EQUIPMENT_FLOOR := "EQUIPMENT_FLOOR"
 const LOCATION_PLC_ROOM := "PLC_ROOM"

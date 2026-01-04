@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="200" viewBox="0 0 640 200">
+  <style> .box { fill:#f6f8ff; stroke:#2b6cb0; stroke-width:2; } .text{ font-family: Arial, sans-serif; font-size:14px; fill:#1a202c }</style>
+  <rect class="box" x="16" y="24" width="160" height="48" rx="6"/>
+  <text class="text" x="34" y="54">Alarm Screen</text>
+
+  <rect class="box" x="240" y="16" width="200" height="56" rx="6"/>
+  <text class="text" x="260" y="36">GameState.get_alarm_by_id()</text>
+  <text class="text" x="260" y="56">returns alarm Dictionary</text>
+
+  <rect class="box" x="480" y="24" width="140" height="48" rx="6"/>
+  <text class="text" x="494" y="54">Location Screen</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="6" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2b6cb0" />
+    </marker>
+  </defs>
+
+  <line x1="176" y1="48" x2="240" y2="48" stroke="#2b6cb0" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="440" y1="48" x2="480" y2="48" stroke="#2b6cb0" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <text class="text" x="36" y="84">select item →</text>
+  <text class="text" x="260" y="84">ack / go → set_selected_location()</text>
+</svg>
