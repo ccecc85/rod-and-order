@@ -8,6 +8,7 @@ extends CharacterBody2D
 
 var has_click_target: bool = false
 var current_zone: LocationZone = null
+var input_enabled: bool = true
 
 func _ready() -> void:
 	interaction_area.area_entered.connect(_on_area_entered)
@@ -53,7 +54,20 @@ func _try_interact() -> void:
 	# get_tree().change_scene_to_file("res://scenes/screens/location_screen.tscn")
 
 
+func set_input_enabled(enabled: bool) -> void:
+	input_enabled = enabled
+	if not input_enabled:
+		clear_move_target()
+		velocity = Vector2.ZERO
+
+
+
 func _physics_process(_delta: float) -> void:
+	if not input_enabled:
+		velocity = Vector2.ZERO
+		move_and_slide()
+		return
+
 	var input_dir := Vector2(
 		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
 		Input.get_action_strength("move_down") - Input.get_action_strength("move_up")

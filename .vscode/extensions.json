@@ -1,0 +1,20 @@
+{
+    "recommendations": [
+        "geequlim.godot-tools",
+        "alfish.godot-files",
+
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+
+        "yzhang.markdown-all-in-one",
+        "bierner.markdown-mermaid",
+        "davidanson.vscode-markdownlint",
+
+        "redhat.vscode-yaml",
+
+        "eamodio.gitlens",
+        "github.vscode-pull-request-github",
+
+        "streetsidesoftware.code-spell-checker"
+    ]
+}

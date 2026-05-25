@@ -15,3 +15,8 @@ shape = SubResource("RectangleShape2D_t6gpq")
 [node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color(1, 1, 1, 0.4117647)
 polygon = PackedVector2Array(0, 0, 0, 64, 256, 64, 256, 0)
+
+[node name="label" type="Label" parent="."]
+z_index = 10
+offset_right = 192.0
+offset_bottom = 23.0

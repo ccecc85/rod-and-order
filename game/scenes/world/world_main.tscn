@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://blh4puw55jch7"]
+[gd_scene load_steps=8 format=3 uid="uid://blh4puw55jch7"]
 
 [ext_resource type="Script" uid="uid://dcrktyt6bl6tf" path="res://scripts/world/world_main.gd" id="1_k7kex"]
 [ext_resource type="PackedScene" uid="uid://20b23jbnoqoa" path="res://scenes/player/player.tscn" id="1_sn1xp"]
 [ext_resource type="Script" uid="uid://cmektx8xwis3k" path="res://scripts/world/debug_floor.gd" id="3_uumr1"]
 [ext_resource type="PackedScene" uid="uid://fxakahtk0evx" path="res://scenes/world/location_zone.tscn" id="4_vbitt"]
+[ext_resource type="PackedScene" uid="uid://ygc1alql38xb" path="res://scenes/screens/alarm_screen.tscn" id="5_l3u84"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_uumr1"]
 vertices = PackedVector2Array(238.71875, -18, 132.14063, -18, 132.14063, -126, 238.71875, -126, 260.14063, 2, 260.14063, -146, 942.0781, -398.09375, 949.9219, 542, -749.75, 542, 258.71875, 2.5, 258.71875, -146, 258.71875, -146.5, 258.71875, 2, 109.28125, 2.5, -726.2422, -413.89844, 109.28125, -146.5)
@@ -77,3 +78,32 @@ offset_top = 368.0
 offset_right = 204.0
 offset_bottom = 391.0
 text = "Press E to interact"
+
+[node name="alarm_overlay" type="Control" parent="ui_layer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="dim_bg" type="ColorRect" parent="ui_layer/alarm_overlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5019608)
+
+[node name="alarm_container" type="PanelContainer" parent="ui_layer/alarm_overlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="alarm_screen" parent="ui_layer/alarm_overlay/alarm_container" instance=ExtResource("5_l3u84")]
+layout_mode = 2
